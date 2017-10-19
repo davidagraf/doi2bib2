@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Bibparser from 'jison-loader!../utils/bibparser.jison';
+import Bibparser from '../utils/bibparser.jison';
 
 class About extends Component {
   constructor(props) {
