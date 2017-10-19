@@ -14,6 +14,7 @@
     "client": "node start-client.js"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "react-router-dom": "^4.2.2"
   }
 }
