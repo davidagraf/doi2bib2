@@ -3,18 +3,21 @@
   "version": "2.0.0-alpha.1",
   "private": false,
   "dependencies": {
-    "xml2js": "^0.4.19",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
     "q": "^1.5.0",
     "request": "^2.83.0",
-    "express": "^4.16.2"
+    "xml2js": "^0.4.19"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run start-nodemon\" \"npm run client\"",
+    "start-nodemon": "nodemon server/index.js",
     "server": "node server/index.js",
     "client": "node start-client.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
+    "nodemon": "^1.12.1",
     "react-router-dom": "^4.2.2"
   }
 }

@@ -15,9 +15,39 @@ class About extends Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    console.log(Bibparser);
     event.preventDefault();
+
+    let idToSend = this.state.value;
+    let url;
+
+    idToSend = idToSend.replace(/ /g, '');
+
+    if (idToSend.match(/^(doi:|(http:\/\/)?(dx\.)?doi\.org\/)?10\..+\/.+$/i)) {
+      if (idToSend.match(/^doi:/i)) {
+        idToSend = idToSend.substring(4);
+      } else if (idToSend.indexOf('doi.org/') > 0) {
+				idToSend = idToSend.substr(idToSend.indexOf('doi.org/') + 8)
+			}
+
+      url = '/doi2bib';
+    } else if (idToSend.match(/^\d+$|^PMC\d+(\.\d+)?$/)) {
+      url = '/pmid2bib';
+    }
+    else if (idToSend.match(/^(arxiv:)?\d+\.\d+(v(\d+))?/i)) {
+      if (idToSend.match(/^arxiv:/i)) {
+        idToSend = idToSend.substring(6);
+      }
+      url = '/arxivid2bib';
+    }
+
+    if(url) {
+      fetch('http://localhost:3001' + url + '?id=' + idToSend).
+        then(response => response.text()).
+        then(data => console.log(data));
+    } else {
+      console.log(url);
+    }
+
   }
 
   render() {

@@ -2,6 +2,7 @@
 
 var http = require('http'),
     express = require('express'),
+    cors = require('cors'),
     app = express(),
     env = process.env.NODE_ENV || 'development',
 
@@ -9,6 +10,8 @@ var http = require('http'),
 
 if ('production' === env) {
   app.use(express.static(__dirname + '/../client/build'));
+} else {
+  app.use(cors());
 }
 
 var
