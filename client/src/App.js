@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import About from './components/About';
-import Bib from './components/Bib';
+import Doi2Bib from './components/Doi2Bib';
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
                 <Route path="/about" children={<About/>} />
                 <Route path="/terms" children={<About/>} />
                 <Route path="/help" children={<About/>} />
-                <Route path="/bib" children={<Bib/>} />
+                <Route path="/bib" children={<Doi2Bib/>} />
                 <Route path="*" children={<About/>}/>
               </Switch>
             </div>

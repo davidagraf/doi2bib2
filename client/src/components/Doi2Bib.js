@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Bibparser from '../utils/bibparser.jison';
+import Bib from '../utils/Bib.js';
 
 class About extends Component {
   constructor(props) {
@@ -41,9 +41,14 @@ class About extends Component {
     }
 
     if(url) {
-      fetch('http://localhost:3001' + url + '?id=' + idToSend).
-        then(response => response.text()).
-        then(data => console.log(data));
+      fetch('http://localhost:3001' + url + '?id=' + idToSend)
+        .then(response => response.text())
+        .then(data => {
+          let bib = new Bib(data);
+          console.log(bib.toPrettyString());
+          console.log(bib.getURL());
+          console.log(data);
+        });
     } else {
       console.log(url);
     }
