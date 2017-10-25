@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bib from '../utils/Bib.js';
+import logo from './doi2bib-logo.png';
 
 class About extends Component {
   constructor(props) {
@@ -45,21 +46,53 @@ class About extends Component {
         .then(response => response.text())
         .then(data => {
           let bib = new Bib(data);
-          console.log(bib.toPrettyString());
-          console.log(bib.getURL());
-          console.log(data);
+          this.setState({
+            bib: bib.toPrettyString(),
+            url: bib.getURL()
+          });
         });
     } else {
-      console.log(url);
+      console.log("input is wrong");
     }
-
   }
 
   render() {
     return (
       <div>
-        <input type="text" onChange={this.handleChange}/>
-        <button onClick={this.handleSubmit}>doi2bib</button>
+        <div className="row margin-top">
+          <div className="col-md-offset-4 col-md-4 text-center">
+            <img src={logo} alt="doi2bib_logo" height="60" width="60" />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-offset-3 col-md-6 text-center">
+            <h2>doi2bib &#8212; give us a DOI and we will do our best to get you the BibTeX entry</h2>
+          </div>
+        </div>
+        <div className="row margin-top">
+          <div className="col-md-offset-3 col-md-6">
+            <form name="bibForm">
+              <div className="input-group">
+                <input type="text"
+                      className="form-control"
+                      maxLength="60"
+                      onChange={this.handleChange}
+                      placeholder="Enter a doi, PMCID, or arXiv ID"
+                      autoFocus/>
+                <span className="input-group-btn">
+                  <button ytpe="button" className="btn btn-default" onClick={this.handleSubmit}>get BibTeX</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="row margin-top">
+          <div className="col-md-offset-2 col-md-8 text-center">
+            <span className="glyphicon glyphicon-refresh spin"></span>
+            { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
+            { this.state.url && <a href={this.state.url} target="_blank">{this.stateurl}</a> }
+          </div>
+        </div>
       </div>
     );
   }
