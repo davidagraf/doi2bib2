@@ -18,11 +18,12 @@ class App extends Component {
             </div>
             <div>
               <Switch>
-                <Route path="/about" children={<About/>} />
-                <Route path="/terms" children={<About/>} />
-                <Route path="/help" children={<About/>} />
-                <Route path="/bib" children={<Doi2Bib/>} />
-                <Route path="*" children={<About/>}/>
+                <Route path="/about" component={About} />
+                <Route path="/terms" component={About} />
+                <Route path="/help" component={About} />
+                <Route path="/bib/:query" component={Doi2Bib} />
+                <Route path="/bib" component={Doi2Bib} />
+                <Route path="*" component={About}/>
               </Switch>
             </div>
           </div>

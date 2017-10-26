@@ -5,10 +5,16 @@ import logo from './doi2bib-logo.png';
 class About extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: decodeURIComponent(props.match.params.query || '')};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.state.value) {
+      this.generateBib(false);
+    }
   }
 
   handleChange(event) {
@@ -17,7 +23,10 @@ class About extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.generateBib(true);
+  }
 
+  generateBib(changeBrowserURL) {
     let idToSend = this.state.value;
     let url;
 
@@ -50,6 +59,9 @@ class About extends Component {
             bib: bib.toPrettyString(),
             url: bib.getURL()
           });
+          if (changeBrowserURL) {
+            this.props.history.push('/bib/' + encodeURIComponent(this.state.value));
+          }
         });
     } else {
       console.log("input is wrong");
@@ -77,6 +89,7 @@ class About extends Component {
                       className="form-control"
                       maxLength="60"
                       onChange={this.handleChange}
+                      value={this.state.value}
                       placeholder="Enter a doi, PMCID, or arXiv ID"
                       autoFocus/>
                 <span className="input-group-btn">
