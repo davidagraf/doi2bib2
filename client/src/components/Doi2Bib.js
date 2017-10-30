@@ -114,7 +114,7 @@ class About extends Component {
         </div>
         <div className="row margin-top">
           <div className="col-md-offset-2 col-md-8 text-center">
-            { this.state.workInProgress && <span className="glyphicon glyphicon-refresh spin"></span> }
+            { this.state.workInProgress && <i className="fa fa-refresh fa-spin"></i> }
             { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
             { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }
             { this.state.error && <pre class="text-danger text-left" ng-show="error">{this.state.error}</pre> }
