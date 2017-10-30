@@ -13,7 +13,7 @@
     "start-nodemon": "nodemon server/index.js",
     "start-client": "node client/scripts/start.js",
     "build": "node client/scripts/build.js",
-    "server": "node server/index.js",
+    "server": "NODE_ENV=production node server/index.js",
     "client": "node start-client.js"
   },
   "devDependencies": {
