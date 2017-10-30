@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import Bib from '../utils/Bib.js';
 import logo from './doi2bib-logo.png';
 
+function getDomain() {
+  if (process.env.NODE_ENV !== 'production') {
+    return 'http://localhost:3001';
+  } else {
+    return '';
+  }
+}
+
 class About extends Component {
   constructor(props) {
     super(props);
@@ -60,7 +68,7 @@ class About extends Component {
     }
 
     if(url) {
-      fetch('http://localhost:3001' + url + '?id=' + idToSend)
+      fetch(getDomain() + url + '?id=' + idToSend)
         .then(response => {
           if (!response.ok) {
             return response.text().then(Promise.reject.bind(Promise));

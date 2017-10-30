@@ -9,11 +9,11 @@
     "xml2js": "0.4.19"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-nodemon\" \"npm run start-client\"",
+    "dev": "concurrently \"npm run start-nodemon\" \"npm run start-client\"",
     "start-nodemon": "nodemon server/index.js",
     "start-client": "node client/scripts/start.js",
     "build": "node client/scripts/build.js",
-    "server": "NODE_ENV=production node server/index.js",
+    "start": "NODE_ENV=production node server/index.js",
     "client": "node start-client.js"
   },
   "devDependencies": {
