@@ -1,73 +1,78 @@
 'use strict';
 
-var
-request = require('request'),
-Q = require('q'),
-parseString = require('xml2js').parseString,
+const
+  request = require('request'),
+  parseString = require('xml2js').parseString;
 
-doi2bibOptions = function(doi) {
+function doi2bibOptions(doi) {
   return {
     url: 'https://doi.org/' + doi,
     headers: {
       'Accept': 'application/x-bibtex; charset=utf-8'
     }
   };
-},
-doi2bib = function(doi) {
-  var deferred = Q.defer();
-  request(doi2bibOptions(doi), function(error, response, body) {
-    if (response.statusCode === 200) {
-      deferred.resolve(body);
-    } else {
-      deferred.reject(response.statusCode);
-    }
+}
+
+function doi2bib(doi) {
+  return new Promise((resolve, reject) => {
+    request(doi2bibOptions(doi), function(error, response, body) {
+      if (response.statusCode === 200) {
+        resolve(body);
+      } else {
+        reject(response.statusCode);
+      }
+    });
   });
-  return deferred.promise;
-},
-pmid2doiOptions = function(pimd) {
+}
+
+function pmid2doiOptions(pimd) {
   var options = {
     url: 'http://www.pubmedcentral.nih.gov/utils/idconv/v1.0/?format=json&ids=' + pimd,
     json: true
   };
   return options;
-},
-pmid2doi = function(pmid) {
-  var deferred = Q.defer();
-  request(pmid2doiOptions(pmid), function(error, response, body) {
-    if (response.statusCode !== 200) {
-      deferred.reject(response.statusCode);
-    } else if (!body.records || !body.records[0]) {
-      deferred.reject(204); // not found
-    } else {
-      deferred.resolve(body.records[0].doi);
-    }
+}
+
+function pmid2doi(pmid) {
+  return new Promise((resolve, reject) => {
+    request(pmid2doiOptions(pmid), function(error, response, body) {
+      if (response.statusCode !== 200) {
+        reject(response.statusCode);
+      } else if (!body.records || !body.records[0]) {
+        reject(204); // not found
+      } else {
+        resolve(body.records[0].doi);
+      }
+    });
   });
-  return deferred.promise;
-},
-arxivid2doiOptions = function(arxivid) {
+}
+
+function arxivid2doiOptions(arxivid) {
   var options = {
     url: 'http://export.arxiv.org/api/query?id_list=' + arxivid
   };
   return options;
-},
-arxivid2doi = function(arxivid) {
-  var deferred = Q.defer();
-  request(arxivid2doiOptions(arxivid), function(error, response, body) {
-    if (response.statusCode !== 200) {
-      deferred.reject(response.statusCode);
-    } else if (!body) {
-      deferred.reject(204);
-    } else {
-      parseString(body, function(err, result) {
-        if (err || !result.feed.entry[0]['arxiv:doi']) {
-          deferred.reject(404);
-        } else {
-          var doi = result.feed.entry[0]['arxiv:doi'][0]._;
-          deferred.resolve(doi);
-        }});
+}
+
+function arxivid2doi(arxivid) {
+  return new Promise((resolve, reject) => {
+    request(arxivid2doiOptions(arxivid), function(error, response, body) {
+      if (response.statusCode !== 200) {
+        deferred.reject(response.statusCode);
+      } else if (!body) {
+        deferred.reject(204);
+      } else {
+        parseString(body, function(err, result) {
+          if (err || !result.feed.entry[0]['arxiv:doi']) {
+            deferred.reject(404);
+          } else {
+            var doi = result.feed.entry[0]['arxiv:doi'][0]._;
+            deferred.resolve(doi);
+          }
+        });
       }});
-  return deferred.promise;
-};
+    });
+}
 
 
 module.exports = {
