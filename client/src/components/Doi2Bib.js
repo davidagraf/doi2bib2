@@ -5,7 +5,9 @@ import logo from './doi2bib-logo.png';
 class About extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: decodeURIComponent(props.match.params.query || '')};
+    this.state = {
+      value: decodeURIComponent(props.match.params.query || '')
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,6 +31,13 @@ class About extends Component {
   generateBib(changeBrowserURL) {
     let idToSend = this.state.value;
     let url;
+
+    this.setState({
+      bib: null,
+      url: null,
+      error: null,
+      workInProgress: true
+    });
 
     idToSend = idToSend.replace(/ /g, '');
 
@@ -57,14 +66,18 @@ class About extends Component {
           let bib = new Bib(data);
           this.setState({
             bib: bib.toPrettyString(),
-            url: bib.getURL()
+            url: bib.getURL(),
+            workInProgress: false
           });
           if (changeBrowserURL) {
             this.props.history.push('/bib/' + encodeURIComponent(this.state.value));
           }
         });
     } else {
-      console.log("input is wrong");
+      this.setState({
+        error: 'Invalid ID. Must be DOI, PMID, or arXiv ID (after 2007).',
+        workInProgress: false
+      });
     }
   }
 
@@ -101,9 +114,10 @@ class About extends Component {
         </div>
         <div className="row margin-top">
           <div className="col-md-offset-2 col-md-8 text-center">
-            <span className="glyphicon glyphicon-refresh spin"></span>
+            { this.state.workInProgress && <span className="glyphicon glyphicon-refresh spin"></span> }
             { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
-            { this.state.url && <a href={this.state.url} target="_blank">{this.stateurl}</a> }
+            { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }
+            { this.state.error && <pre class="text-danger text-left" ng-show="error">{this.state.error}</pre> }
           </div>
         </div>
       </div>

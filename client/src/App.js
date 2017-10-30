@@ -23,7 +23,7 @@ class App extends Component {
                 <Route path="/help" component={About} />
                 <Route path="/bib/:query" component={Doi2Bib} />
                 <Route path="/bib" component={Doi2Bib} />
-                <Route path="*" component={About}/>
+                <Route path="*" component={Doi2Bib}/>
               </Switch>
             </div>
           </div>
