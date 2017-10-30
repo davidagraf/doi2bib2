@@ -61,7 +61,13 @@ class About extends Component {
 
     if(url) {
       fetch('http://localhost:3001' + url + '?id=' + idToSend)
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) {
+            return response.text().then(Promise.reject.bind(Promise));
+          } else {
+            return response.text();
+          }
+        })
         .then(data => {
           let bib = new Bib(data);
           this.setState({
@@ -72,6 +78,11 @@ class About extends Component {
           if (changeBrowserURL) {
             this.props.history.push('/bib/' + encodeURIComponent(this.state.value));
           }
+        }, data => {
+          this.setState({
+            error: data,
+            workInProgress: false
+          });
         });
     } else {
       this.setState({
@@ -117,7 +128,7 @@ class About extends Component {
             { this.state.workInProgress && <i className="fa fa-refresh fa-spin"></i> }
             { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
             { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }
-            { this.state.error && <pre class="text-danger text-left" ng-show="error">{this.state.error}</pre> }
+            { this.state.error && <pre className="text-danger text-left">{this.state.error}</pre> }
           </div>
         </div>
       </div>
