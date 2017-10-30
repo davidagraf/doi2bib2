@@ -2,8 +2,8 @@ doi2bib
 =======
 
 ### Installation
-    git clone https://github.com/davidagraf/doi2bib2.git
-    cd doi2bib
+    clone this repository
+    cd doi2bib2
     npm install
 
 ### Run Development
@@ -14,7 +14,7 @@ doi2bib
 
 ### Run Distribution
     npm start
-    
+
 
 ### Authors
 
