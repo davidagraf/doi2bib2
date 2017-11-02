@@ -9,8 +9,8 @@
     "xml2js": "0.4.19"
   },
   "scripts": {
-    "dev": "concurrently \"npm run start-nodemon\" \"npm run start-client\"",
-    "start-nodemon": "nodemon server/index.js",
+    "dev": "node ./node_modules/concurrently/src/main.js  \"npm run start-nodemon\" \"npm run start-client\"",
+    "start-nodemon": "node ./node_modules/nodemon/bin/nodemon.js server/index.js",
     "start-client": "node client/scripts/start.js",
     "build": "node client/scripts/build.js",
     "start": "NODE_ENV=production node server/index.js",
