@@ -3,29 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+
+      <meta name="description" content="Easy generation of citations in BibTeX format from digital object identifiers (DOIs)."/>
+      <meta name="google-site-verification" content="E2sOp1KeS4q_5aIEgHPeHnAFRzfa4qqVYKRbtjykKeA" />
+
+      <!-- build:css styles/vendor.css -->
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+      <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+      <!-- endbuild -->
+
+      <!-- build:css styles/site.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="styles/cssload.css">
+      <!-- endbuild -->
+      <title>doi2bib</title>
+
+    </head>
+
+    <title>doi2bib</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
+      <noscript>
+        You need to enable JavaScript to run this app.
+      </noscript>
+    <div id="root" class="container"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -37,4 +42,43 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6 text-center">
+          <span>
+            &copy; 2015 doi2bib
+          </span>
+          <span>
+            <a href="#"><i class="glyphicon glyphicon-home"></i></a>
+          </span>
+          <span>
+            <a href="terms">Terms</a>
+          </span>
+          <span>
+            <a href="help">Help</a>
+          </span>
+          <span>
+            <a href="terms">About</a>
+          </span>
+          <span>
+            <a href="https://twitter.com/doi2bib" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+          </span>
+          <span>
+            <a href="https://github.com/davidagraf/doi2bib2" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-51510894-1', 'doi2bib.org');
+    ga('send', 'pageview');
+  </script>
 </html>
