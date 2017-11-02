@@ -15,6 +15,9 @@ doi2bib
 ### Run Distribution
     npm start
 
+### Website
+
+http://doi2bib.org
 
 ### Authors
 
