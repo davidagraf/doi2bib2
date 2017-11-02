@@ -10,7 +10,7 @@ function getDomain() {
   }
 }
 
-class About extends Component {
+class Doi2Bib extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -144,4 +144,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Doi2Bib;
