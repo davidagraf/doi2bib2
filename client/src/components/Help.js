@@ -1,5 +1,49 @@
 import React, { Component } from 'react';
 
+const EXAMPLE1 =
+`@article{einstein1905zur,
+  title={Zur Elektrodynamik bewegter K\\"orper},
+  volume={322},
+  ISSN={1521-3889},
+  url={http://dx.doi.org/10.1002/andp.19053221004},
+  DOI={10.1002/andp.19053221004},
+  number={10},
+  journal={Annalen der Physik},
+  publisher={Wiley-Blackwell},
+  author={Einstein, A.},
+  year={1905},
+  pages={891--921}
+}`;
+
+const EXAMPLE2 =
+`\\documentclass{article}
+\\usepackage[doi=false, url=false, isbn=false, backend=biber]{biblatex}
+\\bibliography{references}
+\\begin{document}
+\\nocite{*}
+\\printbibliography
+\\end{document}`;
+
+const EXAMPLE3 =
+`\\documentclass[11pt]{article}
+\\usepackage{natbib}
+\\usepackage{url}
+\\begin{document}
+\\nocite{*}
+\\bibliographystyle{natbib}
+\\bibliography{references}
+\\end{document}`;
+
+
+const EXAMPLE4 =
+`\\documentclass[11pt]{article}
+\\usepackage{natbib}
+\\begin{document}
+\\nocite{*}
+\\bibliographystyle{plain}
+\\bibliography{references}
+\\end{document}</pre>`;
+
 class Help extends Component {
   render() {
     return (
@@ -13,10 +57,10 @@ class Help extends Component {
       <h3>BibTeX File (.bib)</h3>
       <p>BibTeX entries are saved to a text file which serves as a bibliographic references database. As an example, consider the file <tt>references.bib</tt> that contains one BibTeX entry:</p>
 
-      <div class="row margin-top">
-      <div class="col-md-offset-2 col-md-8">
+      <div className="row margin-top">
+      <div className="col-md-offset-2 col-md-8">
 
-      BibTeX example below.
+      <pre dangerouslySetInnerHTML={{__html: EXAMPLE1}} />
 
       </div></div>
 
@@ -27,26 +71,26 @@ class Help extends Component {
       <br/>
       <p><strong>Biblatex (Biber and BibTeX engines)</strong></p>
       <p>The <a href="http://www.ctan.org/pkg/biblatex">biblatex package</a> displays DOI, URL, and ISSN/ISBN by default. To prevent these data entries from being printed, set the <tt>doi</tt>, <tt>url</tt>, and <tt>isbn</tt> package options to <tt>false</tt>.</p>
-      <div class="row margin-top">
-      <div class="col-md-offset-2 col-md-8">
+      <div className="row margin-top">
+      <div className="col-md-offset-2 col-md-8">
 
-      LaTeX example below.
+      <pre dangerouslySetInnerHTML={{__html: EXAMPLE2}} />
 
       </div></div>
       <br/>
       <p><strong>Natbib (BibTeX engine)</strong></p>
       <p>Support for DOI, URL, and ISSN/ISBN has been added to the bibliography style <tt>plainnat</tt>. These data entries will be printed unless they are removed or renamed. Loading the <a href="http://ctan.org/pkg/url">url package</a> prevents DOIs and URLs from sticking into the margin.</p>
-      <div class="row margin-top">
-      <div class="col-md-offset-2 col-md-8">
-      LaTeX example below.
+      <div className="row margin-top">
+      <div className="col-md-offset-2 col-md-8">
+      <pre dangerouslySetInnerHTML={{__html: EXAMPLE3}} />
       </div></div>
       <br/>
       <p><strong>Natbib or without package (BibTeX engine)</strong></p>
       <p>Bibliography styles: <tt>plain</tt>, <tt>harvard</tt>, <tt>apalike</tt>, <tt>chicago</tt>, <tt>astron</tt>, and <tt>authordate</tt> do not support DOI, URL, and ISSN/ISBN and will therefore not produce these data entries, even if they are available.</p>
       <p></p>
-      <div class="row margin-top">
-      <div class="col-md-offset-2 col-md-8">
-      LaTeX example below.
+      <div className="row margin-top">
+      <div className="col-md-offset-2 col-md-8">
+      <pre dangerouslySetInnerHTML={{__html: EXAMPLE4}} />
       </div></div>
       </div>
     );
@@ -54,48 +98,3 @@ class Help extends Component {
 }
 
 export default Help;
-
-/*
-<pre> @article{einstein1905zur,
-title={Zur Elektrodynamik bewegter K\"orper},
-volume={322},
-ISSN={1521-3889},
-url={http://dx.doi.org/10.1002/andp.19053221004},
-DOI={10.1002/andp.19053221004},
-number={10},
-journal={Annalen der Physik},
-publisher={Wiley-Blackwell},
-author={Einstein, A.},
-year={1905},
-pages={891--921}
-}</pre>
-
-
-<pre>\documentclass{article}
-\usepackage[doi=false, url=false, isbn=false, backend=biber]{biblatex}
-\bibliography{references}
-\begin{document}
-\nocite{*}
-\printbibliography
-\end{document}</pre>
-
-
-<pre>\documentclass[11pt]{article}
-\usepackage{natbib}
-\usepackage{url}
-\begin{document}
-\nocite{*}
-\bibliographystyle{natbib}
-\bibliography{references}
-\end{document}</pre>
-
-
-<pre>\documentclass[11pt]{article}
-\usepackage{natbib}
-\begin{document}
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{references}
-\end{document}</pre>
-
-*/
