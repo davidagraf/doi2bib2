@@ -9,7 +9,7 @@ import Doi2Bib from './components/Doi2Bib';
 class App extends Component {
   render() {
     return (
-      <div className="text-center">
+      <div>
         <BrowserRouter>
             <div>
               <Switch>
@@ -20,32 +20,28 @@ class App extends Component {
                 <Route path="/bib" component={Doi2Bib} />
                 <Route path="*" component={Doi2Bib}/>
               </Switch>
-              <footer>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-offset-3 col-md-6 text-center">
-                      <div>
-                        &copy; 2017 doi2bib
-                      </div>
-                      <div>
-                        <Link to="/"><i className="fa fa-home"></i></Link>
-                      </div>
-                      <div>
-                        <Link to="/terms">Terms</Link>
-                      </div>
-                      <div>
-                        <Link to="/help">Help</Link>
-                      </div>
-                      <div>
-                        <Link to="/about">About</Link>
-                      </div>
-                      <div>
-                        <a href="https://twitter.com/doi2bib" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter fa-lg"></i></a>
-                      </div>
-                      <div>
-                        <a href="https://github.com/davidagraf/doi2bib2" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg"></i></a>
-                      </div>
-                    </div>
+              <footer className="row">
+                <div className="col">
+                  <div>
+                    &copy; 2017 doi2bib
+                  </div>
+                  <div>
+                    <Link to="/"><i className="fa fa-home"></i></Link>
+                  </div>
+                  <div>
+                    <Link to="/terms">Terms</Link>
+                  </div>
+                  <div>
+                    <Link to="/help">Help</Link>
+                  </div>
+                  <div>
+                    <Link to="/about">About</Link>
+                  </div>
+                  <div>
+                    <a href="https://twitter.com/doi2bib" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter fa-lg"></i></a>
+                  </div>
+                  <div>
+                    <a href="https://github.com/davidagraf/doi2bib2" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg"></i></a>
                   </div>
                 </div>
               </footer>

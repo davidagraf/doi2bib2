@@ -6,18 +6,6 @@ body {
   margin-bottom: 100px;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.margin-top {
-  margin-top: 40px;
-}
-
 footer {
   position: absolute;
   bottom: 0;

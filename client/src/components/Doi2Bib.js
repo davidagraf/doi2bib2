@@ -102,19 +102,19 @@ class Doi2Bib extends Component {
 
   render() {
     return (
-      <div>
-        <div className="row margin-top">
-          <div className="col-md-offset-4 col-md-4 text-center">
+      <div className="text-center">
+        <div className="row">
+          <div className="col">
             <img src={logo} alt="doi2bib_logo" height="60" width="60" />
           </div>
         </div>
         <div className="row">
-          <div className="col-md-offset-3 col-md-6 text-center">
+          <div className="col">
             <h2>doi2bib &#8212; give us a DOI and we will do our best to get you the BibTeX entry</h2>
           </div>
         </div>
-        <div className="row margin-top">
-          <div className="col-md-offset-3 col-md-6">
+        <div className="row">
+          <div className="col">
             <form name="bibForm">
               <div className="input-group">
                 <input type="text"
@@ -131,8 +131,8 @@ class Doi2Bib extends Component {
             </form>
           </div>
         </div>
-        <div className="row margin-top">
-          <div className="col-md-offset-2 col-md-8 text-center">
+        <div className="row">
+          <div className="col">
             { this.state.workInProgress && <i className="fa fa-refresh fa-spin"></i> }
             { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
             { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }
