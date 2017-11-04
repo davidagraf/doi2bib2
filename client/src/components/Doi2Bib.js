@@ -103,22 +103,22 @@ class Doi2Bib extends Component {
   render() {
     return (
       <div className="text-center">
-        <div className="row">
+        <div className="row margin-top">
           <div className="col">
             <img src={logo} alt="doi2bib_logo" height="60" width="60" />
           </div>
         </div>
-        <div className="row">
-          <div className="col">
-            <h2>doi2bib &#8212; give us a DOI and we will do our best to get you the BibTeX entry</h2>
+        <div className="row margin-top">
+          <div className="offset-md-2 col-md-8">
+            <h2>doi2bib &#8212; give us a DOI<br/>and we will do our best to get you the BibTeX entry</h2>
           </div>
         </div>
-        <div className="row">
-          <div className="col">
+        <div className="row margin-top">
+          <div className="offset-md-2 col-md-8">
             <form name="bibForm">
               <div className="input-group">
                 <input type="text"
-                      className="form-control"
+                      className={'form-control' + (this.state.error && ' is-invalid' || '')}
                       maxLength="60"
                       onChange={this.handleChange}
                       value={this.state.value}
@@ -131,8 +131,8 @@ class Doi2Bib extends Component {
             </form>
           </div>
         </div>
-        <div className="row">
-          <div className="col">
+        <div className="row margin-top">
+          <div className="offset-md-2 col-md-8">
             { this.state.workInProgress && <i className="fa fa-refresh fa-spin"></i> }
             { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
             { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }

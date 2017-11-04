@@ -6,6 +6,10 @@ body {
   margin-bottom: 100px;
 }
 
+.margin-top {
+  margin-top: 40px;
+}
+
 footer {
   position: absolute;
   bottom: 0;
