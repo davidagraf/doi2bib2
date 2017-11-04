@@ -25,6 +25,7 @@ class Doi2Bib extends Component {
     if (this.state.value) {
       this.generateBib(false);
     }
+    window.scrollTo(0,0);
   }
 
   handleChange(event) {
@@ -118,7 +119,7 @@ class Doi2Bib extends Component {
             <form name="bibForm">
               <div className="input-group">
                 <input type="text"
-                      className={'form-control' + (this.state.error && ' is-invalid' || '')}
+                      className={'form-control' + (this.state.error ? ' is-invalid' : '')}
                       maxLength="60"
                       onChange={this.handleChange}
                       value={this.state.value}

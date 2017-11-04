@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 class About extends Component {
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+  
   render() {
     return (
-      <div>
+      <div className="margin-top">
       <h1>About</h1>
       <p>How can I retrieve BibTeX entries? This question is being asked over and over again. We decided to address this question and implement a simple web interface that, when entered a digital object identifier (DOI), returns the BibTeX entry. We hope to simplify the citation process through this service in the best interest of research.</p>
 

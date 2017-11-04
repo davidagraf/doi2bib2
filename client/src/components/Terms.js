@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 class Terms extends Component {
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+  
   render() {
     return (
-      <div>
+      <div className="margin-top">
       <h2>TERMS AND CONDITIONS OF USE</h2>
 
       <p>PLEASE READ THE FOLLOWING TERMS AND CONDITIONS CAREFULLY BEFORE USING doi2bib.org ("the Site") operated by doi2bib ("us", "we", or "our"). By using this Site, you signify your agreement to these Terms and Conditions. If you do not agree to these Terms and Conditions, do not use this Site.  We may modify these Terms and Conditions at anytime.</p>

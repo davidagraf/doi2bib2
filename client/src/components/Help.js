@@ -45,9 +45,13 @@ const EXAMPLE4 =
 \\end{document}</pre>`;
 
 class Help extends Component {
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+  
   render() {
     return (
-      <div>
+      <div className="margin-top">
       <h2>Doi2bib Help</h2>
       <h3>Getting the DOI and using doi2bib</h3>
       <p>For most publications, the digital object identifier (DOI) is located on the title page or in the header of every page. The identifier always starts with "10.". Copy and paste the DOI into the search field on our <a href="http://doi2bib.org">main site</a> and press &lt;Enter&gt; or the button: <tt>Get BibTeX</tt>. If the identifier entered is a valid DOI, the BibTeX citation will appear below. Select the entire citation, copy it to the clipboard (e.g. by pressing &lt;ctrl-c&gt;) and paste it to your BibTeX reference file (.bib) or favorite BibTeX reference manager. Some of the most common BibTeX managers include: <a href="http://jabref.sourceforge.net/">JabRef (all platforms)</a>, <a href="http://pybliographer.org/">Pybliographer (Linux)</a>, and <a href="http://bibdesk.sourceforge.net/">BibDesk (Mac)</a>.</p>
