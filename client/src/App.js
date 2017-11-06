@@ -18,7 +18,7 @@ class App extends Component {
         <div>
           <div className="container">
             <Switch>
-              <Route path="/about" component={About} onEnter={console.log('jdklaf')} />
+              <Route path="/about" component={About} />
               <Route path="/terms" component={Terms} />
               <Route path="/help" component={Help} />
               <Route path="/bib/:query" component={Doi2Bib} />
