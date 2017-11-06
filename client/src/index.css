@@ -4,6 +4,8 @@ html {
 }
 body {
   margin-bottom: 100px;
+  font-family: 'PT Sans';font-size: 16px;
+  background-color:rgba(194, 223, 255, 0.3);;
 }
 
 .margin-top {
@@ -19,4 +21,9 @@ footer {
 
 footer span {
   margin: 0 5px;
+}
+
+.center {
+    margin: 0 auto;
+    width: 100px;
 }
