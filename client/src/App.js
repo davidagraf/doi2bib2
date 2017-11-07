@@ -19,6 +19,7 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route path="/about" component={About} />
+              <Route path="/about#donate" component={About} />
               <Route path="/terms" component={Terms} />
               <Route path="/help" component={Help} />
               <Route path="/bib/:query" component={Doi2Bib} />
@@ -31,15 +32,17 @@ class App extends Component {
             &nbsp;
             <Link to="/"><i className="fa fa-home"></i></Link>
             &nbsp;
-            <Link to="/terms">Terms</Link>
-            &nbsp;
-            <Link to="/help">Help</Link>
-            &nbsp;
-            <Link to="/about">About</Link>
-            &nbsp;
             <a href="https://twitter.com/doi2bib" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter fa-lg"></i></a>
             &nbsp;
             <a href="https://github.com/davidagraf/doi2bib2" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg"></i></a>
+            &nbsp;
+            <Link to="/about">About</Link>
+            &nbsp;
+            <Link to="/about#donate">Donate</Link>
+            &nbsp;
+            <Link to="/help">Help</Link>
+            &nbsp;
+            <Link to="/terms">Terms</Link>
           </footer>
         </div>
       </BrowserRouter>
