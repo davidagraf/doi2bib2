@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import Donate from './Donate';
+import queryString from 'query-string';
 
 class About extends Component {
-  componentDidMount() {
-    window.scrollTo(0,0);
+  doScroll() {
+    const parsed = queryString.parse(this.props.location.search);
+    if (parsed.donate) {
+      this.donate.scrollIntoView(true);
+    } else {
+      window.scrollTo(0,0);
+    }
+  }
+
+  componentDidMount(props) {
+    this.doScroll();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.doScroll();
   }
 
   render() {
@@ -25,7 +39,7 @@ class About extends Component {
       <h2>Contributions</h2>
       <p>The code for this site is open source, hosted on <a href="https://github.com/davidagraf/doi2bib2/">GitHub</a>. Some of the ideas were taken from a script written by <a href="http://coudert.name/">FX Coudert</a>, available on <a href="https://github.com/fxcoudert/tools">GitHub</a>.</p>
 
-      <h2 name="donate">Donate</h2>
+      <h2 name="donate" ref={(donate) => { this.donate = donate; }}>Donate</h2>
       <p>We very much appreciate your support.</p>
       <Donate/>
       </div>

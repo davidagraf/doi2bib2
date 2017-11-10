@@ -7,10 +7,6 @@ import Terms from './components/Terms';
 import Doi2Bib from './components/Doi2Bib';
 
 class App extends Component {
-  scrollToTop() {
-    setTimeout(function () { window.scrollTo(0, 0);});
-  }
-
   render() {
     return (
       <BrowserRouter>
@@ -18,7 +14,6 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route path="/about" component={About} />
-              <Route path="/about#donate" component={About} />
               <Route path="/terms" component={Terms} />
               <Route path="/help" component={Help} />
               <Route path="/bib/:query" component={Doi2Bib} />
@@ -37,7 +32,7 @@ class App extends Component {
             &nbsp;&nbsp;
             <Link to="/about">About</Link>
             &nbsp;&nbsp;
-            <Link to="/about#donate">Donate</Link>
+            <Link to="/about?donate=true">Donate</Link>
             &nbsp;&nbsp;
             <Link to="/help">Help</Link>
             &nbsp;&nbsp;

@@ -53,6 +53,7 @@
     "postcss-loader": "2.0.6",
     "promise": "8.0.1",
     "prop-types": "15.6.0",
+    "query-string": "5.0.1",
     "react": "16.0.0",
     "react-dev-utils": "4.1.0",
     "react-dom": "16.0.0",
