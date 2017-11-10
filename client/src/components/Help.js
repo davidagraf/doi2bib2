@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Code from './Code.js';
+
 const EXAMPLE1 =
 `@article{einstein1905zur,
   title={Zur Elektrodynamik bewegter K\\"orper},
@@ -48,7 +50,7 @@ class Help extends Component {
   componentDidMount() {
     window.scrollTo(0,0);
   }
-  
+
   render() {
     return (
       <div className="margin-top">
@@ -64,7 +66,7 @@ class Help extends Component {
       <div className="row margin-top">
       <div className="col-md-offset-2 col-md-8">
 
-      <pre dangerouslySetInnerHTML={{__html: EXAMPLE1}} />
+      <Code>{EXAMPLE1}</Code>
 
       </div></div>
 
@@ -78,7 +80,7 @@ class Help extends Component {
       <div className="row margin-top">
       <div className="col-md-offset-2 col-md-8">
 
-      <pre dangerouslySetInnerHTML={{__html: EXAMPLE2}} />
+      <Code>{EXAMPLE2}</Code>
 
       </div></div>
       <br/>
@@ -86,7 +88,7 @@ class Help extends Component {
       <p>Support for DOI, URL, and ISSN/ISBN has been added to the bibliography style <tt>plainnat</tt>. These data entries will be printed unless they are removed or renamed. Loading the <a href="http://ctan.org/pkg/url">url package</a> prevents DOIs and URLs from sticking into the margin.</p>
       <div className="row margin-top">
       <div className="col-md-offset-2 col-md-8">
-      <pre dangerouslySetInnerHTML={{__html: EXAMPLE3}} />
+      <Code>{EXAMPLE3}</Code>
       </div></div>
       <br/>
       <p><strong>Natbib or without package (BibTeX engine)</strong></p>
@@ -94,7 +96,7 @@ class Help extends Component {
       <p></p>
       <div className="row margin-top">
       <div className="col-md-offset-2 col-md-8">
-      <pre dangerouslySetInnerHTML={{__html: EXAMPLE4}} />
+      <Code>{EXAMPLE4}</Code>
       </div></div>
       </div>
     );

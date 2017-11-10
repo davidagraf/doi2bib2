@@ -8,7 +8,6 @@ import Doi2Bib from './components/Doi2Bib';
 
 class App extends Component {
   scrollToTop() {
-    console.log('hello');
     setTimeout(function () { window.scrollTo(0, 0);});
   }
 
@@ -29,19 +28,19 @@ class App extends Component {
           </div>
           <footer className="text-center">
             &copy; 2017 doi2bib
-            &nbsp;
+            &nbsp;&nbsp;
             <Link to="/"><i className="fa fa-home"></i></Link>
-            &nbsp;
+            &nbsp;&nbsp;
             <a href="https://twitter.com/doi2bib" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter fa-lg"></i></a>
-            &nbsp;
+            &nbsp;&nbsp;
             <a href="https://github.com/davidagraf/doi2bib2" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg"></i></a>
-            &nbsp;
+            &nbsp;&nbsp;
             <Link to="/about">About</Link>
-            &nbsp;
+            &nbsp;&nbsp;
             <Link to="/about#donate">Donate</Link>
-            &nbsp;
+            &nbsp;&nbsp;
             <Link to="/help">Help</Link>
-            &nbsp;
+            &nbsp;&nbsp;
             <Link to="/terms">Terms</Link>
           </footer>
         </div>
