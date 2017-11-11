@@ -58,16 +58,16 @@ function arxivid2doi(arxivid) {
   return new Promise((resolve, reject) => {
     request(arxivid2doiOptions(arxivid), function(error, response, body) {
       if (response.statusCode !== 200) {
-        deferred.reject(response.statusCode);
+        reject(response.statusCode);
       } else if (!body) {
-        deferred.reject(204);
+        reject(204);
       } else {
         parseString(body, function(err, result) {
           if (err || !result.feed.entry[0]['arxiv:doi']) {
-            deferred.reject(404);
+            reject(404);
           } else {
             var doi = result.feed.entry[0]['arxiv:doi'][0]._;
-            deferred.resolve(doi);
+            resolve(doi);
           }
         });
       }});

@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 var http = require('http'),
     express = require('express'),
@@ -55,7 +55,7 @@ app.get('/pmid2bib', function(req, res) {
       then(function(doi) {
         return doi2bib.doi2bib(doi);
       }).
-      then(genSuccessHandler(res)).fail(genErrorHandler(res));
+      then(genSuccessHandler(res), genErrorHandler(res));
   }
 });
 
@@ -69,7 +69,7 @@ app.get('/arxivid2bib', function(req, res) {
       then(function(doi) {
         return doi2bib.doi2bib(doi);
       }).
-      then(genSuccessHandler(res)).fail(genErrorHandler(res));
+      then(genSuccessHandler(res), genErrorHandler(res));
   }
 });
 
