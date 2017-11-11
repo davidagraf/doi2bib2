@@ -63,7 +63,7 @@ class Help extends Component {
       <h3>BibTeX File (.bib)</h3>
       <p>BibTeX entries are saved to a text file which serves as a bibliographic references database. As an example, consider the file <tt>references.bib</tt> that contains one BibTeX entry:</p>
 
-      <div className="row margin-top">
+      <div className="row">
       <div className="col-md-offset-2 col-md-8">
 
       <Code>{EXAMPLE1}</Code>
@@ -77,7 +77,7 @@ class Help extends Component {
       <br/>
       <p><strong>Biblatex (Biber and BibTeX engines)</strong></p>
       <p>The <a href="http://www.ctan.org/pkg/biblatex">biblatex package</a> displays DOI, URL, and ISSN/ISBN by default. To prevent these data entries from being printed, set the <tt>doi</tt>, <tt>url</tt>, and <tt>isbn</tt> package options to <tt>false</tt>.</p>
-      <div className="row margin-top">
+      <div className="row">
       <div className="col-md-offset-2 col-md-8">
 
       <Code>{EXAMPLE2}</Code>
@@ -86,7 +86,7 @@ class Help extends Component {
       <br/>
       <p><strong>Natbib (BibTeX engine)</strong></p>
       <p>Support for DOI, URL, and ISSN/ISBN has been added to the bibliography style <tt>plainnat</tt>. These data entries will be printed unless they are removed or renamed. Loading the <a href="http://ctan.org/pkg/url">url package</a> prevents DOIs and URLs from sticking into the margin.</p>
-      <div className="row margin-top">
+      <div className="row">
       <div className="col-md-offset-2 col-md-8">
       <Code>{EXAMPLE3}</Code>
       </div></div>
@@ -94,7 +94,7 @@ class Help extends Component {
       <p><strong>Natbib or without package (BibTeX engine)</strong></p>
       <p>Bibliography styles: <tt>plain</tt>, <tt>harvard</tt>, <tt>apalike</tt>, <tt>chicago</tt>, <tt>astron</tt>, and <tt>authordate</tt> do not support DOI, URL, and ISSN/ISBN and will therefore not produce these data entries, even if they are available.</p>
       <p></p>
-      <div className="row margin-top">
+      <div className="row">
       <div className="col-md-offset-2 col-md-8">
       <Code>{EXAMPLE4}</Code>
       </div></div>
