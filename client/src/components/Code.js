@@ -6,7 +6,7 @@ import './Code.css';
 class Code extends Component {
   render() {
     return (
-      <pre className="bibtex-code"><code>{this.props.children}</code></pre>
+      <pre className="bibtex-code text-left"><code>{this.props.children}</code></pre>
     );
   }
 }

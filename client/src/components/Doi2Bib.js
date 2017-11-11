@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Bib from '../utils/Bib.js';
 import logo from './doi2bib-logo.png';
 
+import Code from './Code.js';
+
 function getDomain() {
   if (process.env.NODE_ENV !== 'production') {
     return 'http://localhost:3001';
@@ -126,7 +128,7 @@ class Doi2Bib extends Component {
                       placeholder="Enter a doi, PMCID, or arXiv ID"
                       autoFocus/>
                 <span className="input-group-btn">
-                  <button ytpe="button" className="btn btn-default" onClick={this.handleSubmit}>get BibTeX</button>
+                  <button type="button" className="btn btn-default" onClick={this.handleSubmit}>get BibTeX</button>
                 </span>
               </div>
             </form>
@@ -135,7 +137,7 @@ class Doi2Bib extends Component {
         <div className="row margin-top">
           <div className="offset-md-2 col-md-8">
             { this.state.workInProgress && <i className="fa fa-refresh fa-spin"></i> }
-            { this.state.bib && <pre className="text-left">{this.state.bib}</pre> }
+            { this.state.bib && <Code>{this.state.bib}</Code> }
             { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }
             { this.state.error && <pre className="text-danger text-left">{this.state.error}</pre> }
           </div>
