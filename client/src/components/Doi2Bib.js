@@ -21,6 +21,7 @@ class Doi2Bib extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,13 @@ class Doi2Bib extends Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      this.generateBib(true);
+    }
   }
 
   handleSubmit(event) {
@@ -124,6 +132,7 @@ class Doi2Bib extends Component {
                       className={'form-control' + (this.state.error ? ' is-invalid' : '')}
                       maxLength="60"
                       onChange={this.handleChange}
+                      onKeyPress={this.handleKeyPress}
                       value={this.state.value}
                       placeholder="Enter a doi, PMCID, or arXiv ID"
                       autoFocus/>
