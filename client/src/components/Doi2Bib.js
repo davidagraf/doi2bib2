@@ -60,7 +60,7 @@ class Doi2Bib extends Component {
 
     idToSend = idToSend.replace(/ /g, '');
 
-    if (idToSend.match(/^(doi:|(http:\/\/)?(dx\.)?doi\.org\/)?10\..+\/.+$/i)) {
+    if (idToSend.match(/^(doi:|(https?:\/\/)?(dx\.)?doi\.org\/)?10\..+\/.+$/i)) {
       if (idToSend.match(/^doi:/i)) {
         idToSend = idToSend.substring(4);
       } else if (idToSend.indexOf('doi.org/') > 0) {
