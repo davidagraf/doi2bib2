@@ -15,6 +15,11 @@ doi2bib
 ### Run Distribution
     npm start
 
+### Deploy
+    now // new now domain is copied to clipboard
+    now alias <ctrl-v> doi2bib.org
+    now alias <ctrl-v> www.doi2bib.org
+
 ### Website
 
 http://doi2bib.org
