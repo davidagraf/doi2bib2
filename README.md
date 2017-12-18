@@ -2,23 +2,33 @@ doi2bib
 =======
 
 ### Installation
-    clone this repository
-    cd doi2bib2
-    npm install
+```bash
+clone this repository
+cd doi2bib2
+npm install
+```
 
 ### Run Development
-    npm run dev
+```bash
+npm run dev
+```
 
 ### Create Distribution
-    npm run build
+```bash
+npm run build
+```
 
 ### Run Distribution
-    npm start
+```bash
+npm start
+```
 
 ### Deploy
-    now // new now domain is copied to clipboard
-    now alias <ctrl-v> doi2bib.org
-    now alias <ctrl-v> www.doi2bib.org
+```bash
+now # new now domain is copied to clipboard
+now alias <ctrl-v> doi2bib.org
+now alias <ctrl-v> www.doi2bib.org
+```
 
 ### Website
 
