@@ -130,7 +130,7 @@ class Doi2Bib extends Component {
               <div className="input-group">
                 <input type="text"
                       className={'form-control' + (this.state.error ? ' is-invalid' : '')}
-                      maxLength="60"
+                      maxLength="100"
                       onChange={this.handleChange}
                       onKeyPress={this.handleKeyPress}
                       value={this.state.value}
