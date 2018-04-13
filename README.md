@@ -11,6 +11,7 @@ npm install
 ### Run Development
 ```bash
 npm run dev
+open http://localhost:3000
 ```
 
 ### Create Distribution
@@ -21,6 +22,7 @@ npm run build
 ### Run Distribution
 ```bash
 npm start
+open http://localhost:3001
 ```
 
 ### Deploy
