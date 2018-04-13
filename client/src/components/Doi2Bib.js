@@ -22,6 +22,8 @@ class Doi2Bib extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.copyBibToClipboard = this.copyBibToClipboard.bind(this);
+    this.copyUrlToClipboard = this.copyUrlToClipboard.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +47,27 @@ class Doi2Bib extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.generateBib(true);
+  }
+
+  copyToCipboard(event, text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    event.target.focus();
+  }
+
+  copyBibToClipboard(event) {
+    this.copyToCipboard(event, this.state.bib);
+  }
+
+  copyUrlToClipboard(event) {
+    this.copyToCipboard(event, this.state.url);
   }
 
   generateBib(changeBrowserURL) {
@@ -137,7 +160,7 @@ class Doi2Bib extends Component {
                       placeholder="Enter a doi, PMCID, or arXiv ID"
                       autoFocus/>
                 <span className="input-group-btn">
-                  <button type="button" className="btn btn-default" onClick={this.handleSubmit}>get BibTeX</button>
+                  <button type="button" className="btn btn-light" onClick={this.handleSubmit}>get BibTeX</button>
                 </span>
               </div>
             </form>
@@ -146,11 +169,20 @@ class Doi2Bib extends Component {
         <div className="row margin-top">
           <div className="offset-md-2 col-md-8">
             { this.state.workInProgress && <i className="fa fa-refresh fa-spin"></i> }
-            { this.state.bib && <Code>{this.state.bib}</Code> }
-            { this.state.url && <a href={this.state.url} target="_blank">{this.state.url}</a> }
+            { this.state.bib && <Code ref={(el) => this.bibArea = el}>{this.state.bib}</Code> }
+            { this.state.url && <a href={this.state.url} target="_blank" ref={(el) => this.urlArea = el}>{this.state.url}</a> }
             { this.state.error && <pre className="text-danger text-left">{this.state.error}</pre> }
           </div>
         </div>
+        {
+          this.state.bib && this.state.url &&
+          <div className="row">
+            <div className="offset-md-2 col-md-8">
+              <button className="copy-button btn btn-light" onClick={this.copyBibToClipboard}>Copy Bib to Clipboard</button>
+              <button className="copy-button btn btn-light" onClick={this.copyUrlToClipboard}>Copy URL to Clipboard</button>
+            </div>
+          </div>
+        }
       </div>
     );
   }
