@@ -1,15 +1,16 @@
  'use strict';
 
-var http = require('http'),
+const http = require('http'),
     express = require('express'),
     cors = require('cors'),
     app = express(),
     env = process.env.NODE_ENV || 'development',
-
+    port = process.env.PORT || 3001,
+    path = require('path'),
     doi2bib = require('./doi2bib');
 
 if ('production' === env) {
-  app.use(express.static(__dirname + '/../client/build'));
+//  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 } else {
   app.use(cors());
 }
@@ -74,7 +75,7 @@ app.get('/arxivid2bib', function(req, res) {
 });
 
 app.listen(
-  3001,
+  port,
   '127.0.0.1',
   function() {
     console.log('node server started');

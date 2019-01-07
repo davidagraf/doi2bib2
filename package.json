@@ -18,7 +18,7 @@
     "start-nodemon": "node ./node_modules/nodemon/bin/nodemon.js server/index.js",
     "start-client": "node client/scripts/start.js",
     "build": "node client/scripts/build.js",
-    "start": "NODE_ENV=production node server/index.js",
+    "start": "NODE_ENV=production DEBUG=express:* node server/index.js",
     "client": "node start-client.js"
   },
   "devDependencies": {
@@ -54,8 +54,6 @@
     "jquery": "3.3.1",
     "nodemon": "1.17.3",
     "object-assign": "4.1.1",
-    "popper": "1.0.1",
-    "popper.js": "1.14.3",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",

@@ -1,3 +1,16 @@
-{
-  "version": 2
+{ "version": 2,
+  "builds": [
+    { "src": "server/index.js", "use": "@now/node-server" },
+    { "src": "client/build/**", "use": "@now/static" }
+  ],
+  "routes": [
+    { "src": "^/$", "dest": "/client/build/index.html" },
+    { "src": "^/index.html", "dest": "/client/build/index.html" },
+    { "src": "^/asset-manifest.json", "dest": "/client/build/asset-manifest.json" },
+    { "src": "^/favicon.ico", "dest": "/client/build/favicon.ico" },
+    { "src": "^/manifest.json", "dest": "/client/build/manifest.json" },
+    { "src": "^/service-worker.js", "dest": "/client/build/service-worker.js" },
+    { "src": "^/static/(.*)", "dest": "/client/build/static/$1" },
+    { "src": "/(.*)", "dest": "server/index.js" }
+  ]
 }
