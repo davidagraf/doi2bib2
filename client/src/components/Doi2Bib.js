@@ -15,8 +15,14 @@ function getDomain() {
 class Doi2Bib extends Component {
   constructor(props) {
     super(props);
+    let doiInUrl
+    if (props.match.params.prefix && props.match.params.suffix) {
+      doiInUrl = props.match.params.prefix + '/' + props.match.params.suffix;
+    } else {
+      doiInUrl = props.match.params.prefix;
+    }
     this.state = {
-      value: decodeURIComponent(props.match.params.query || '')
+      value: doiInUrl
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +36,7 @@ class Doi2Bib extends Component {
     if (this.state.value) {
       this.generateBib(false);
     }
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   handleChange(event) {
@@ -118,7 +124,7 @@ class Doi2Bib extends Component {
             workInProgress: false
           });
           if (changeBrowserURL) {
-            this.props.history.push('/bib/' + encodeURIComponent(this.state.value));
+            this.props.history.push('/bib/' + this.state.value);
           }
         }, data => {
           this.setState({

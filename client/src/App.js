@@ -16,8 +16,7 @@ class App extends Component {
               <Route path="/about" component={About} />
               <Route path="/terms" component={Terms} />
               <Route path="/help" component={Help} />
-              <Route path="/bib/:query" component={Doi2Bib} />
-              <Route path="/bib" component={Doi2Bib} />
+              <Route path="/bib/:prefix?/:suffix?" component={Doi2Bib} />
               <Route path="*" component={Doi2Bib} />
             </Switch>
           </div>
