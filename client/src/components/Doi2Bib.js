@@ -12,14 +12,14 @@ function getDomain() {
   }
 }
 
+const BIB = '/bib/';
+
 class Doi2Bib extends Component {
   constructor(props) {
     super(props);
-    let doiInUrl
-    if (props.match.params.prefix && props.match.params.suffix) {
-      doiInUrl = props.match.params.prefix + '/' + props.match.params.suffix;
-    } else {
-      doiInUrl = props.match.params.prefix;
+    let doiInUrl = '';
+    if (props.location.pathname.startsWith(BIB)) {
+      doiInUrl = props.location.pathname.substring(BIB.length);
     }
     this.state = {
       value: doiInUrl
