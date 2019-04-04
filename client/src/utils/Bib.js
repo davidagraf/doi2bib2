@@ -74,7 +74,7 @@ export default class Bib {
     result = '@' + this.bib.type + '{' + this.bib.id;
 
     Object.keys(this.bib.tags).forEach(key => {
-      const useBrackets = !['year', 'month'].includes(key);
+      const useBrackets = !['month'].includes(key);
       const value = this.bib.tags[key];
       result += ',\n  ' + key + ' = ';
       if (useBrackets) {
