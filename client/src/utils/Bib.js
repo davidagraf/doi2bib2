@@ -62,6 +62,10 @@ export default class Bib {
         this.bib.tags.title = insertDollars(this.bib.tags.title);
       }
     }
+
+    // remove brackets from month
+    console.log(bibStr);
+    console.log(this.bib.tags.month);
   }
 
   toPrettyString() {
@@ -70,9 +74,16 @@ export default class Bib {
     result = '@' + this.bib.type + '{' + this.bib.id;
 
     Object.keys(this.bib.tags).forEach(key => {
+      const useBrackets = !['year', 'month'].includes(key);
       const value = this.bib.tags[key];
-      result += ',\n  ' + key + ' = {' +
-        encodeSpecialChars(value.join ? value.join(', ') : value) + '}';
+      result += ',\n  ' + key + ' = ';
+      if (useBrackets) {
+        result += '{';
+      }
+      result += encodeSpecialChars(value.join ? value.join(', ') : value);
+      if (useBrackets) {
+        result += '}';
+      }
     });
 
     result += '\n}';
