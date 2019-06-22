@@ -9,7 +9,10 @@ const http = require('http'),
     path = require('path'),
     doi2bib = require('./doi2bib'),
     helmet = require('helmet'),
-    rateLimit = require("express-rate-limit");
+    rateLimit = require("express-rate-limit"),
+    morgan = require('morgan');
+
+app.use(morgan('short'));
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes

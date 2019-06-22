@@ -10,10 +10,11 @@
   "dependencies": {
     "cors": "2.8.4",
     "express": "4.16.3",
-    "request": "2.85.0",
-    "xml2js": "0.4.19",
+    "express-rate-limit": "5.0.0",
     "helmet": "3.18.0",
-    "express-rate-limit": "5.0.0"
+    "morgan": "1.9.1",
+    "request": "2.85.0",
+    "xml2js": "0.4.19"
   },
   "scripts": {
     "dev": "./node_modules/check-dependencies/bin/cli.js && node ./node_modules/concurrently/src/main.js  \"npm run start-nodemon\" \"npm run start-client\"",
