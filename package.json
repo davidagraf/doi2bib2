@@ -11,7 +11,9 @@
     "cors": "2.8.4",
     "express": "4.16.3",
     "request": "2.85.0",
-    "xml2js": "0.4.19"
+    "xml2js": "0.4.19",
+    "helmet": "3.18.0",
+    "express-rate-limit": "5.0.0"
   },
   "scripts": {
     "dev": "./node_modules/check-dependencies/bin/cli.js && node ./node_modules/concurrently/src/main.js  \"npm run start-nodemon\" \"npm run start-client\"",
@@ -44,12 +46,10 @@
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.4.0",
-    "express-rate-limit": "^5.0.0",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
     "font-awesome": "4.7.0",
     "fs-extra": "3.0.1",
-    "helmet": "^3.18.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "jison-loader": "1.0.0",
