@@ -7,7 +7,18 @@ const http = require('http'),
     env = process.env.NODE_ENV || 'development',
     port = process.env.PORT || 3001,
     path = require('path'),
-    doi2bib = require('./doi2bib');
+    doi2bib = require('./doi2bib'),
+    helmet = require('helmet'),
+    rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+
+  //  apply to all requests
+app.use(limiter);
+app.use(helmet());
 
 if ('production' === env) {
 //  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
