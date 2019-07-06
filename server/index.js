@@ -47,7 +47,7 @@ genSuccessHandler = function(res) {
   };
 };
 
-app.get('/doi2bib', function(req, res) {
+app.get('/2/doi2bib', function(req, res) {
   res.set('Content-Type', 'application/x-bibtex');
 
   if (!/^10\..+\/.+$/.test(req.query.id)) {
@@ -58,7 +58,7 @@ app.get('/doi2bib', function(req, res) {
   }
 });
 
-app.get('/pmid2bib', function(req, res) {
+app.get('/2/pmid2bib', function(req, res) {
   res.set('Content-Type', 'application/x-bibtex');
 
 
@@ -74,7 +74,7 @@ app.get('/pmid2bib', function(req, res) {
   }
 });
 
-app.get('/arxivid2bib', function(req, res) {
+app.get('/2/arxivid2bib', function(req, res) {
   res.set('Content-Type', 'application/x-bibtex');
   if (!/^\d+\.\d+(v(\d+))?$/.test(req.query.id)) {
     res.writeHead(400);
