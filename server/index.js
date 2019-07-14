@@ -24,7 +24,7 @@ app.use(limiter);
 app.use(helmet());
 
 if ('production' === env) {
-//  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 } else {
   app.use(cors());
 }
