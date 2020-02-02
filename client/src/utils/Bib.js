@@ -86,7 +86,7 @@ export default class Bib {
       }
     });
 
-    result += '\n}';
+    result += ',\n}';
 
     return result;
   };
