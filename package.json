@@ -54,7 +54,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "jison-loader": "1.0.0",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "nodemon": "1.17.3",
     "object-assign": "4.1.1",
     "popper": "1.0.1",
