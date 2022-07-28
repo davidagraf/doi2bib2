@@ -96,15 +96,15 @@ class Doi2Bib extends Component {
 				idToSend = idToSend.substr(idToSend.indexOf('doi.org/') + 8)
 			}
 
-      url = '/2/doi2bib';
+      url = '/8350e5a3e24c153df2275c9f80692773/doi2bib';
     } else if (idToSend.match(/^\d+$|^PMC\d+(\.\d+)?$/)) {
-      url = '/2/pmid2bib';
+      url = '/8350e5a3e24c153df2275c9f80692773/pmid2bib';
     }
     else if (idToSend.match(/^(arxiv:)?\d+\.\d+(v(\d+))?/i)) {
       if (idToSend.match(/^arxiv:/i)) {
         idToSend = idToSend.substring(6);
       }
-      url = '/2/arxivid2bib';
+      url = '/8350e5a3e24c153df2275c9f80692773/arxivid2bib';
     }
 
     if(url) {
