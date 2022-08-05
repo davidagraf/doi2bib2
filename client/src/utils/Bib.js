@@ -40,6 +40,9 @@ export default class Bib {
     if (this.bib.tags.pages === 'n/a-n/a') {
       delete this.bib.tags.pages;
     }
+    if (Array.isArray(this.bib.tags.pages)) {
+      this.bib.tags.pages = this.bib.tags.pages.join("");
+    }
     if (this.bib.tags.pages && this.bib.tags.pages.indexOf('--') === -1) {
       this.bib.tags.pages = this.bib.tags.pages.replace(/-/g, '--');
     }
