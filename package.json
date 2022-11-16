@@ -51,7 +51,7 @@
     "file-loader": "1.1.5",
     "font-awesome": "4.7.0",
     "fs-extra": "3.0.1",
-    "html-webpack-plugin": "2.29.0",
+    "html-webpack-plugin": "5.5.0",
     "jest": "20.0.4",
     "jison-loader": "1.0.0",
     "jquery": "3.4.1",
